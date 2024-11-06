@@ -1,22 +1,26 @@
-const customer = {
-  name: "seniru",
-  age: 19,
-  address: "gampaha",
-  items: [
-    {
-      itemcode: "C102",
-      qty: 5,
-    },
-    {
-      itemcode: "C103",
-      qty: 3,
-    },
-  ],
+const inputFieldsCustomer = document.querySelectorAll(".cust");
+const inputFieldsItem = document.querySelectorAll(".item");
+
+const customerArray = [];
+const orderArray = [];
+
+const getOrder = () => {
+  orderArray.push({
+    orderId: inputFieldsItem[0].value,
+    orderQty: inputFieldsItem[1].value,
+    total: inputFieldsItem[2].value,
+  });
+  inputFieldsItem.forEach((val) => (val.value = ""));
+  console.log(orderArray);
 };
 
-let myArr = customer.items.map((val) => val.itemcode);
-
-let arr = [2, 4, 2, 5, 6];
-
-let i = arr.findIndex((el) => el == 9);
-console.log(i);
+const getCustomer = () => {
+  customerArray.push({
+    customerId: inputFieldsCustomer[0].value,
+    customerName: inputFieldsCustomer[1].value,
+    customerAddress: inputFieldsCustomer[2].value,
+    customerAge: inputFieldsCustomer[3].value,
+  });
+  console.log(customerArray);
+  inputFieldsCustomer.forEach((val) => (val.value = ""));
+};
